@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOD Dashboard - Academic Record Management</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logo.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="hod.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="light-mode">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../Assets/logo.png" alt="Logo" class="dashboard-logo">
+                <span class="dashboard-title">Academic Record Management System</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Lecturers</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>Students</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-book"></i>
+                    <span>My Courses</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Performance</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="theme-toggle" title="Toggle dark/light theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search students, courses...">
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">5</span>
+                    </div>
+                    <div class="user-profile">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <span class="user-name">Prof. Sarah Johnson</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value">15</div>
+                        <div class="stat-label">Department Lecturers</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value">450</div>
+                        <div class="stat-label">Total Students</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">My Courses</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value">92%</div>
+                        <div class="stat-label">Dept. Performance</div>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <h2>Quick Actions</h2>
+                    <div class="action-buttons">
+                        <button class="action-btn">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Add Lecturer</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>Record Marks</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-file-export"></i>
+                            <span>Generate Report</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-envelope"></i>
+                            <span>Send Notifications</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="teaching-section">
+                    <div class="section-header">
+                        <h2>My Courses</h2>
+                        <button class="add-course-btn">
+                            <i class="fas fa-plus"></i> Add Course
+                        </button>
+                    </div>
+                    <div class="courses-grid">
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h3>Advanced Programming</h3>
+                                <span class="course-code">CS301</span>
+                            </div>
+                            <div class="course-stats">
+                                <div class="stat">
+                                    <span class="label">Students</span>
+                                    <span class="value">45</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Average</span>
+                                    <span class="value">78%</span>
+                                </div>
+                            </div>
+                            <div class="course-actions">
+                                <button class="record-marks-btn">Record Marks</button>
+                                <button class="view-details-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="submissions-section">
+                    <h2>Recent Mark Submissions</h2>
+                    <div class="submissions-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Course</th>
+                                    <th>Type</th>
+                                    <th>Students</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Advanced Programming</td>
+                                    <td>Mid-term</td>
+                                    <td>45</td>
+                                    <td>2024-03-15</td>
+                                    <td><span class="badge success">Submitted</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button title="Edit"><i class="fas fa-edit"></i></button>
+                                            <button title="View"><i class="fas fa-eye"></i></button>
+                                            <button title="Download"><i class="fas fa-download"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

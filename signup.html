@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - AcademiRecord</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/logo.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="signup-container">
+        <div class="signup-box">
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="logo">
+                <img src="Assets/logo.png" alt="logo" class="logo-img">
+            </div>
+            <h2>Create Account</h2>
+            
+            <div class="role-selector">
+                <button class="role-btn" data-role="dean">Dean</button>
+                <button class="role-btn" data-role="hod">HOD</button>
+                <button class="role-btn" data-role="lecturer">Lecturer</button>
+                <button class="role-btn active" data-role="student">Student</button>
+            </div>
+
+            <form id="signupForm">
+                <div class="form-group">
+                    <input type="text" id="firstName" required>
+                    <label for="firstName">First Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="lastName" required>
+                    <label for="lastName">Last Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phoneNumber" required>
+                    <label for="phoneNumber">Phone Number</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" required>
+                    <label for="password">Password</label>
+                </div>
+                <div class="form-group student-only">
+                    <input type="text" id="registrationNumber" required>
+                    <label for="registrationNumber">Registration Number</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="token" required>
+                    <label for="token">Invitation Token</label>
+                </div>
+                <button type="submit" class="submit-btn">Sign Up</button>
+            </form>
+            
+            <p class="login-link">Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

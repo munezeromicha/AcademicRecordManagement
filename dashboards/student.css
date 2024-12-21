@@ -1,0 +1,480 @@
+.student-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.student-info h2 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    font-size: 1.5rem;
+}
+
+.student-info p {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.academic-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.info-card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: var(--transition);
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.info-card h3 {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.info-card p {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.results-section {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.section-header h2 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+}
+
+.header-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.trimester-select {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--shadow-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.trimester-select:hover {
+    border-color: var(--primary-color);
+}
+
+.print-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.print-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.results-table {
+    overflow-x: auto;
+    margin: 0 -1.5rem;
+    padding: 0 1.5rem;
+}
+
+.results-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.results-table th,
+.results-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--shadow-color);
+}
+
+.results-table th {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.results-table td {
+    color: var(--text-color);
+}
+
+.results-table tbody tr:hover {
+    background-color: var(--background-color);
+}
+
+.results-table tfoot tr {
+    background-color: var(--background-color);
+}
+
+.results-table tfoot td {
+    font-weight: 600;
+}
+
+.claim-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.claim-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--shadow-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    font-size: 1.5rem;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0.5rem;
+    line-height: 1;
+}
+
+.close-modal:hover {
+    color: var(--primary-color);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.confirmation-content {
+    max-width: 400px;
+    text-align: center;
+    padding: 2rem;
+}
+
+.confirmation-icon {
+    font-size: 4rem;
+    color: #28a745;
+    margin-bottom: 1.5rem;
+    animation: scaleIn 0.5s ease-out;
+}
+
+.confirmation-content h2 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.confirmation-content p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.confirmation-actions {
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--shadow-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+}
+
+.form-group input[type="text"]:read-only {
+    background-color: var(--background-color);
+    border-color: var(--shadow-color);
+    cursor: not-allowed;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--shadow-color);
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 1rem;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}
+
+@media print {
+    .sidebar,
+    .dashboard-header,
+    .header-actions,
+    .claim-btn,
+    .modal {
+        display: none !important;
+    }
+
+    .dashboard-main {
+        padding: 0;
+    }
+
+    .results-table {
+        margin: 0;
+        padding: 0;
+    }
+
+    .results-table th,
+    .results-table td {
+        border: 1px solid #000;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    @page {
+        margin: 2cm;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-actions {
+        width: 100%;
+    }
+
+    .trimester-select {
+        flex: 1;
+    }
+
+    .results-table {
+        margin: 0 -1rem;
+        padding: 0 1rem;
+    }
+
+    .results-table table {
+        min-width: 800px;
+    }
+}
+
+@media (max-width: 480px) {
+    .academic-info {
+        grid-template-columns: 1fr;
+    }
+
+    .header-actions {
+        flex-direction: column;
+    }
+
+    .print-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.form-group textarea#claimReason {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--shadow-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    resize: vertical;
+    min-height: 120px;
+}
+
+.primary-btn, 
+.secondary-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--body-font);
+    border: none;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--background-color);
+    transform: translateY(-2px);
+}
+
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px dashed var(--shadow-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.form-group input[type="file"]:hover {
+    border-color: var(--primary-color);
+}
+
+.form-group small {
+    display: block;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+} 

@@ -1,0 +1,385 @@
+.teaching-section {
+    margin-top: 2rem;
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+}
+
+.add-course-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.add-course-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.course-card {
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: var(--transition);
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.course-header h3 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+.course-code {
+    padding: 0.3rem 0.8rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.course-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.course-stats .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem;
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+}
+
+.stat .label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+}
+
+.stat .value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.course-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.record-marks-btn, .view-details-btn {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.record-marks-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.record-marks-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.view-details-btn {
+    background-color: var(--background-color);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.view-details-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.submissions-section {
+    margin-top: 2rem;
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.submissions-section h2 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.submissions-table {
+    overflow-x: auto;
+}
+
+.badge.pending {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.badge.draft {
+    background-color: #6c757d;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .course-actions {
+        flex-direction: column;
+    }
+
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@keyframes highlight {
+    0% {
+        background-color: var(--primary-color);
+        opacity: 0.1;
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+.new-submission {
+    animation: highlight 2s ease-out;
+}
+
+.submissions-table tbody tr {
+    transition: var(--transition);
+}
+
+.submissions-table tbody tr:hover {
+    background-color: var(--background-color);
+}
+
+.notifications-panel {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 300px;
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    padding: 1rem;
+    display: none;
+}
+
+.notifications.active .notifications-panel {
+    display: block;
+}
+
+.notification-item {
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--shadow-color);
+    transition: var(--transition);
+}
+
+.notification-item:hover {
+    background-color: var(--background-color);
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.quick-actions {
+    margin-top: 2rem;
+}
+
+.quick-actions h2 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.5rem;
+    background-color: var(--card-background);
+    border: 1px solid var(--shadow-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    border-color: var(--primary-color);
+}
+
+.action-btn i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.action-btn span {
+    color: var(--text-color);
+    font-weight: 500;
+    text-align: center;
+}
+
+.submissions-section {
+    margin-top: 2rem;
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.submissions-section h2 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.submissions-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.submissions-table th,
+.submissions-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--shadow-color);
+}
+
+.submissions-table th {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.submissions-table td {
+    color: var(--text-color);
+}
+
+.submissions-table .badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.submissions-table .badge.success {
+    background-color: #28a745;
+    color: white;
+}
+
+.submissions-table .table-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+}
+
+.submissions-table .table-actions button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submissions-table .table-actions button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+    .submissions-table {
+        overflow-x: auto;
+    }
+
+    .submissions-table table {
+        min-width: 800px;
+    }
+}
+
+@media (max-width: 768px) {
+    .action-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .action-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .submissions-table .table-actions {
+        flex-wrap: wrap;
+        gap: 0.25rem;
+    }
+} 

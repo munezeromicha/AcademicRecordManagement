@@ -1,0 +1,330 @@
+.performance-section {
+    margin-top: 2rem;
+}
+
+.performance-section h2 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.department-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.department-card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: var(--transition);
+}
+
+.department-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.dept-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.dept-header h3 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+}
+
+.performance-indicator {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.performance-indicator.high {
+    background-color: #28a745;
+    color: white;
+}
+
+.performance-indicator.medium {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.performance-indicator.low {
+    background-color: #dc3545;
+    color: white;
+}
+
+.dept-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.dept-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+}
+
+.dept-stat .label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+}
+
+.dept-stat .value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.view-details {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.view-details:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.recent-activities {
+    margin-top: 2rem;
+}
+
+.recent-activities h2 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.activity-list {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--shadow-color);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+}
+
+.activity-details p {
+    color: var(--text-color);
+    margin-bottom: 0.3rem;
+}
+
+.activity-time {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.quick-actions {
+    margin-top: 2rem;
+}
+
+.quick-actions h2 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.5rem;
+    background-color: var(--card-background);
+    border: 1px solid var(--shadow-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    border-color: var(--primary-color);
+}
+
+.action-btn i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.action-btn span {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.departments-section {
+    margin-top: 2rem;
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.add-dept-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.add-dept-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.department-table {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--shadow-color);
+}
+
+th {
+    font-weight: 600;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+td {
+    color: var(--text-color);
+}
+
+.badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.badge.success {
+    background-color: #28a745;
+    color: white;
+}
+
+.badge.warning {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.table-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.table-actions button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.table-actions button:hover {
+    background-color: var(--primary-color);
+    color: white;
+} 
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    color: white;
+}
+
+.profile-icon i {
+    font-size: 1.8rem;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.user-profile:hover {
+    background-color: var(--background-color);
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+} 
