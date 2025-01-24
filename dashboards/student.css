@@ -1,3 +1,6 @@
+/* Student Dashboard Specific Styles */
+
+/* Student Info Header */
 .student-info {
     display: flex;
     flex-direction: column;
@@ -15,6 +18,7 @@
     font-size: 1rem;
 }
 
+/* Academic Info Cards */
 .academic-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -49,6 +53,7 @@
     line-height: 1.4;
 }
 
+/* Results Section */
 .results-section {
     background-color: var(--card-background);
     padding: 1.5rem;
@@ -109,6 +114,7 @@
     transform: translateY(-2px);
 }
 
+/* Results Table */
 .results-table {
     overflow-x: auto;
     margin: 0 -1.5rem;
@@ -151,6 +157,7 @@
     font-weight: 600;
 }
 
+/* Claim Button */
 .claim-btn {
     display: flex;
     align-items: center;
@@ -171,6 +178,7 @@
     transform: translateY(-2px);
 }
 
+/* Claim Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -233,6 +241,7 @@
     padding: 1.5rem;
 }
 
+/* Confirmation Modal Styles */
 .confirmation-content {
     max-width: 400px;
     text-align: center;
@@ -263,6 +272,7 @@
     justify-content: center;
 }
 
+/* Modal Animations */
 @keyframes modalSlideIn {
     from {
         opacity: 0;
@@ -285,6 +295,7 @@
     }
 }
 
+/* Form Styles in Modal */
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -322,6 +333,7 @@
     border-top: 1px solid var(--shadow-color);
 }
 
+/* Responsive Modal Styles */
 @media (max-width: 768px) {
     .modal-content {
         width: 95%;
@@ -337,6 +349,7 @@
     }
 }
 
+/* Print Styles */
 @media print {
     .sidebar,
     .dashboard-header,
@@ -370,6 +383,7 @@
     }
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
     .section-header {
         flex-direction: column;
@@ -409,6 +423,7 @@
     }
 }
 
+/* Form Styles in Modal */
 .form-group textarea#claimReason {
     width: 100%;
     padding: 0.8rem;
@@ -421,6 +436,7 @@
     min-height: 120px;
 }
 
+/* Button Styles */
 .primary-btn, 
 .secondary-btn {
     padding: 0.8rem 1.5rem;
@@ -458,6 +474,7 @@
     transform: translateY(-2px);
 }
 
+/* File Input Styles */
 .form-group input[type="file"] {
     width: 100%;
     padding: 0.8rem;

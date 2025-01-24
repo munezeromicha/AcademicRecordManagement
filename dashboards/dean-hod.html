@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOD Management - Dean Dashboard</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logo.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="dean.css">
+    <link rel="stylesheet" href="hod.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/logo.png" alt="Logo" class="dashboard-logo">
+                <span class="dashboard-title">Academic Record Management System</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dean-dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="dean-departments.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Departments</span>
+                </a>
+                <a href="dean-hod.html" class="nav-item active">
+                    <i class="fas fa-user-tie"></i>
+                    <span>HOD Management</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>School Performance</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="theme-toggle" title="Toggle dark/light theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="header-title">
+                        <h1>HOD Management</h1>
+                        <p>Manage Heads of Departments in the School of ICT</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="add-hod-btn" onclick="openAddHodModal()">
+                        <i class="fas fa-plus"></i>
+                        Appoint New HOD
+                    </button>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <span class="user-name">Dr. John Smith</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="hod-grid">
+                    <!-- Computer Science HOD Card -->
+                    <div class="hod-card">
+                        <div class="hod-header">
+                            <div class="hod-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="hod-actions">
+                                <button class="edit-btn" onclick="openEditHodModal('CS-HOD')" title="Edit HOD">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="delete-btn" onclick="confirmRemoveHod('CS-HOD')" title="Remove HOD">
+                                    <i class="fas fa-user-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="hod-info">
+                            <h3>Dr. Sarah Johnson</h3>
+                            <p class="department">Computer Science Department</p>
+                            <div class="contact-info">
+                                <p><i class="fas fa-envelope"></i> sarah.johnson@university.edu</p>
+                                <p><i class="fas fa-phone"></i> +1234567890</p>
+                            </div>
+                        </div>
+                        <div class="hod-stats">
+                            <div class="stat-item">
+                                <span class="label">Experience</span>
+                                <span class="value">8 years</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Staff</span>
+                                <span class="value">15</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Publications</span>
+                                <span class="value">45</span>
+                            </div>
+                        </div>
+                        <button class="view-profile-btn" onclick="viewHodProfile('CS-HOD')">
+                            View Full Profile
+                        </button>
+                    </div>
+
+                    <!-- Add more HOD cards here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add HOD Modal -->
+    <div id="addHodModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Appoint New HOD</h2>
+                <button class="close-modal" onclick="closeAddHodModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addHodForm">
+                    <div class="form-group">
+                        <label for="hodName">Full Name</label>
+                        <input type="text" id="hodName" required placeholder="e.g., Dr. Sarah Johnson">
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <select id="department" required>
+                            <option value="">Select Department</option>
+                            <option value="CS">Computer Science</option>
+                            <option value="IT">Information Technology</option>
+                            <option value="SE">Software Engineering</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="email@university.edu">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required placeholder="+1234567890">
+                    </div>
+                    <div class="form-group">
+                        <label for="qualification">Highest Qualification</label>
+                        <input type="text" id="qualification" required placeholder="e.g., PhD in Computer Science">
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">Years of Experience</label>
+                        <input type="number" id="experience" required min="0" placeholder="e.g., 8">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="secondary-btn" onclick="closeAddHodModal()">Cancel</button>
+                        <button type="submit" class="primary-btn">Appoint HOD</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Remove HOD Confirmation Modal -->
+    <div id="removeHodModal" class="modal">
+        <div class="modal-content confirmation-content">
+            <div class="confirmation-icon warning">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h2>Remove HOD?</h2>
+            <p>Are you sure you want to remove this Head of Department? This action cannot be undone.</p>
+            <div class="confirmation-actions">
+                <button class="secondary-btn" onclick="closeRemoveHodModal()">Cancel</button>
+                <button class="delete-btn" onclick="removeHod()">Remove HOD</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- View HOD Profile Modal -->
+    <div id="viewProfileModal" class="modal">
+        <div class="modal-content profile-modal">
+            <div class="modal-header">
+                <h2>HOD Profile</h2>
+                <button class="close-modal" onclick="closeProfileModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-content">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h3 id="profileName">Dr. Sarah Johnson</h3>
+                            <p id="profileDepartment" class="department">Computer Science Department</p>
+                            <p id="profileQualification">PhD in Computer Science</p>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-details">
+                        <div class="detail-section">
+                            <h4>Contact Information</h4>
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span id="profileEmail">sarah.johnson@university.edu</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span id="profilePhone">+1234567890</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-building"></i>
+                                    <span id="profileOffice">Room 405, ICT Building</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4>Academic Information</h4>
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span id="profileExperience">8 years experience</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-book"></i>
+                                    <span id="profilePublications">45 publications</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span id="profileStaff">15 staff members</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4>Department Performance</h4>
+                            <div class="performance-stats">
+                                <div class="stat-card">
+                                    <span class="stat-value">92%</span>
+                                    <span class="stat-label">Student Success Rate</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="stat-value">15</span>
+                                    <span class="stat-label">Research Projects</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="stat-value">4.8</span>
+                                    <span class="stat-label">Staff Rating</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

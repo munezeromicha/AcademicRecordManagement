@@ -297,4 +297,99 @@ if (addDeptForm) {
 const departmentsLink = document.querySelector('a[href="#"].nav-item:nth-child(2)');
 if (departmentsLink) {
     departmentsLink.href = 'dean-departments.html';
+}
+
+// Update HOD Management navigation
+const hodManagementLink = document.querySelector('a[href="#"].nav-item:nth-child(3)');
+if (hodManagementLink) {
+    hodManagementLink.href = 'dean-hod.html';
+}
+
+// HOD Management Functions
+function openAddHodModal() {
+    const modal = document.getElementById('addHodModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeAddHodModal() {
+    const modal = document.getElementById('addHodModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+function openEditHodModal(hodId) {
+    const modal = document.getElementById('addHodModal');
+    const form = document.getElementById('addHodForm');
+    const title = modal.querySelector('.modal-header h2');
+    
+    // Populate form with HOD data (example data)
+    document.getElementById('hodName').value = 'Dr. Sarah Johnson';
+    document.getElementById('department').value = 'CS';
+    document.getElementById('email').value = 'sarah.johnson@university.edu';
+    document.getElementById('phone').value = '+1234567890';
+    document.getElementById('qualification').value = 'PhD in Computer Science';
+    document.getElementById('experience').value = '8';
+    
+    title.textContent = 'Edit HOD Details';
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Handle HOD form submission
+const addHodForm = document.getElementById('addHodForm');
+if (addHodForm) {
+    addHodForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = {
+            name: document.getElementById('hodName').value,
+            department: document.getElementById('department').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            qualification: document.getElementById('qualification').value,
+            experience: document.getElementById('experience').value
+        };
+        
+        console.log('HOD Data:', formData);
+        closeAddHodModal();
+    });
+}
+
+function viewHodProfile(hodId) {
+    const modal = document.getElementById('viewProfileModal');
+    
+    // Here you would normally fetch HOD data from the server
+    // For now, we'll use example data
+    const hodData = {
+        name: 'Dr. Sarah Johnson',
+        department: 'Computer Science Department',
+        qualification: 'PhD in Computer Science',
+        email: 'sarah.johnson@university.edu',
+        phone: '+1234567890',
+        office: 'Room 405, ICT Building',
+        experience: '8 years experience',
+        publications: '45 publications',
+        staff: '15 staff members'
+    };
+    
+    // Update modal content with HOD data
+    document.getElementById('profileName').textContent = hodData.name;
+    document.getElementById('profileDepartment').textContent = hodData.department;
+    document.getElementById('profileQualification').textContent = hodData.qualification;
+    document.getElementById('profileEmail').textContent = hodData.email;
+    document.getElementById('profilePhone').textContent = hodData.phone;
+    document.getElementById('profileOffice').textContent = hodData.office;
+    document.getElementById('profileExperience').textContent = hodData.experience;
+    document.getElementById('profilePublications').textContent = hodData.publications;
+    document.getElementById('profileStaff').textContent = hodData.staff;
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProfileModal() {
+    const modal = document.getElementById('viewProfileModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
 } 

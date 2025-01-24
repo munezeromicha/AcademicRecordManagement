@@ -12,15 +12,14 @@
     <link rel="stylesheet" href="../dashboard.css">
     <link rel="stylesheet" href="hod.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Outfit:wght@100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
 <body class="light-mode">
     <div class="dashboard-container">
         <aside class="sidebar">
             <div class="sidebar-header">
-                <img src="../Assets/logo.png" alt="Logo" class="dashboard-logo">
+                <img src="../assets/logo.png" alt="Logo" class="dashboard-logo">
                 <span class="dashboard-title">Academic Record Management System</span>
             </div>
 
@@ -87,6 +86,7 @@
             </header>
 
             <div class="dashboard-content">
+                <!-- Department Stats -->
                 <div class="dashboard-stats">
                     <div class="stat-card">
                         <div class="stat-header">
@@ -129,6 +129,7 @@
                     </div>
                 </div>
 
+                <!-- Quick Actions -->
                 <div class="quick-actions">
                     <h2>Quick Actions</h2>
                     <div class="action-buttons">
@@ -145,12 +146,13 @@
                             <span>Generate Report</span>
                         </button>
                         <button class="action-btn">
-                            <i class="fas fa-envelope"></i>
-                            <span>Send Notifications</span>
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Send Report to Dean</span>
                         </button>
                     </div>
                 </div>
 
+                <!-- My Teaching Section -->
                 <div class="teaching-section">
                     <div class="section-header">
                         <h2>My Courses</h2>
@@ -179,9 +181,11 @@
                                 <button class="view-details-btn">View Details</button>
                             </div>
                         </div>
+                        <!-- Add more course cards as needed -->
                     </div>
                 </div>
 
+                <!-- Recent Submissions -->
                 <div class="submissions-section">
                     <h2>Recent Mark Submissions</h2>
                     <div class="submissions-table">
@@ -199,7 +203,7 @@
                             <tbody>
                                 <tr>
                                     <td>Advanced Programming</td>
-                                    <td>Mid-term</td>
+                                    <td>Mid-term & Final exam</td>
                                     <td>45</td>
                                     <td>2024-03-15</td>
                                     <td><span class="badge success">Submitted</span></td>
@@ -222,4 +226,4 @@
     <script src="../script.js"></script>
 </body>
 
-</html>
+</html> 
