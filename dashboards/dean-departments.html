@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments - Dean Dashboard</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logo.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="dean.css">
+    <link rel="stylesheet" href="departments.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/logo.png" alt="Logo" class="dashboard-logo">
+                <span class="dashboard-title">Academic Record Management System</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dean-dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="dean-departments.html" class="nav-item active">
+                    <i class="fas fa-users"></i>
+                    <span>Departments</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-user-tie"></i>
+                    <span>HOD Management</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>School Performance</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="theme-toggle" title="Toggle dark/light theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="header-title">
+                        <h1>Departments Management</h1>
+                        <p>Manage all departments in the School of ICT</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="add-dept-btn" onclick="openAddDeptModal()">
+                        <i class="fas fa-plus"></i>
+                        Add New Department
+                    </button>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <span class="user-name">Dr. John Smith</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="departments-grid">
+                    <!-- Computer Science Department -->
+                    <div class="department-card">
+                        <div class="dept-header">
+                            <div class="dept-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="dept-actions">
+                                <button class="edit-btn" onclick="openEditDeptModal('CS')" title="Edit Department">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="delete-btn" onclick="confirmDeleteDept('CS')" title="Delete Department">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3>Computer Science</h3>
+                        <div class="dept-stats">
+                            <div class="stat-item">
+                                <span class="label">Students</span>
+                                <span class="value">450</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Staff</span>
+                                <span class="value">15</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Programs</span>
+                                <span class="value">3</span>
+                            </div>
+                        </div>
+                        <div class="dept-info">
+                            <p class="hod-info">
+                                <i class="fas fa-user-tie"></i>
+                                HOD: Dr. Sarah Johnson
+                            </p>
+                            <p class="dept-code">
+                                <i class="fas fa-hashtag"></i>
+                                Code: CS
+                            </p>
+                        </div>
+                        <button class="view-details-btn" onclick="viewDepartmentDetails('CS')">
+                            View Details
+                        </button>
+                    </div>
+
+                    <!-- Information Technology Department -->
+                    <div class="department-card">
+                        <div class="dept-header">
+                            <div class="dept-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div class="dept-actions">
+                                <button class="edit-btn" onclick="openEditDeptModal('IT')" title="Edit Department">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="delete-btn" onclick="confirmDeleteDept('IT')" title="Delete Department">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3>Information Technology</h3>
+                        <div class="dept-stats">
+                            <div class="stat-item">
+                                <span class="label">Students</span>
+                                <span class="value">380</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Staff</span>
+                                <span class="value">12</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Programs</span>
+                                <span class="value">2</span>
+                            </div>
+                        </div>
+                        <div class="dept-info">
+                            <p class="hod-info">
+                                <i class="fas fa-user-tie"></i>
+                                HOD: Prof. Michael Chen
+                            </p>
+                            <p class="dept-code">
+                                <i class="fas fa-hashtag"></i>
+                                Code: IT
+                            </p>
+                        </div>
+                        <button class="view-details-btn" onclick="viewDepartmentDetails('IT')">
+                            View Details
+                        </button>
+                    </div>
+
+                    <!-- Software Engineering Department -->
+                    <div class="department-card">
+                        <div class="dept-header">
+                            <div class="dept-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="dept-actions">
+                                <button class="edit-btn" onclick="openEditDeptModal('SE')" title="Edit Department">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="delete-btn" onclick="confirmDeleteDept('SE')" title="Delete Department">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3>Software Engineering</h3>
+                        <div class="dept-stats">
+                            <div class="stat-item">
+                                <span class="label">Students</span>
+                                <span class="value">320</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Staff</span>
+                                <span class="value">10</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Programs</span>
+                                <span class="value">2</span>
+                            </div>
+                        </div>
+                        <div class="dept-info">
+                            <p class="hod-info">
+                                <i class="fas fa-user-tie"></i>
+                                HOD: Dr. Emily Brown
+                            </p>
+                            <p class="dept-code">
+                                <i class="fas fa-hashtag"></i>
+                                Code: SE
+                            </p>
+                        </div>
+                        <button class="view-details-btn" onclick="viewDepartmentDetails('SE')">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Department Modal -->
+    <div id="addDeptModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Department</h2>
+                <button class="close-modal" onclick="closeAddDeptModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addDeptForm">
+                    <div class="form-group">
+                        <label for="deptName">Department Name</label>
+                        <input type="text" id="deptName" required placeholder="e.g., Computer Science">
+                    </div>
+                    <div class="form-group">
+                        <label for="deptCode">Department Code</label>
+                        <input type="text" id="deptCode" required placeholder="e.g., CS">
+                    </div>
+                    <div class="form-group">
+                        <label for="hodName">Head of Department</label>
+                        <input type="text" id="hodName" required placeholder="e.g., Dr. Sarah Johnson">
+                    </div>
+                    <div class="form-group">
+                        <label for="deptDesc">Description</label>
+                        <textarea id="deptDesc" rows="4" placeholder="Brief description of the department"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="secondary-btn" onclick="closeAddDeptModal()">Cancel</button>
+                        <button type="submit" class="primary-btn">Create Department</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteConfirmModal" class="modal">
+        <div class="modal-content confirmation-content">
+            <div class="confirmation-icon warning">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h2>Delete Department?</h2>
+            <p>Are you sure you want to delete this department? This action cannot be undone.</p>
+            <div class="confirmation-actions">
+                <button class="secondary-btn" onclick="closeDeleteConfirmModal()">Cancel</button>
+                <button class="delete-btn" onclick="deleteDepartment()">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Department Details Modal -->
+    <div id="deptDetailsModal" class="modal">
+        <div class="modal-content details-modal">
+            <div class="modal-header">
+                <h2>Department Details</h2>
+                <button class="close-modal" onclick="closeDeptDetailsModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="dept-details-content">
+                    <div class="dept-overview">
+                        <h3>Overview</h3>
+                        <div class="overview-grid">
+                            <div class="overview-item">
+                                <span class="label">Established</span>
+                                <span class="value">2015</span>
+                            </div>
+                            <div class="overview-item">
+                                <span class="label">Total Staff</span>
+                                <span class="value">15</span>
+                            </div>
+                            <div class="overview-item">
+                                <span class="label">Total Students</span>
+                                <span class="value">450</span>
+                            </div>
+                            <div class="overview-item">
+                                <span class="label">Success Rate</span>
+                                <span class="value">92%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dept-programs">
+                        <h3>Programs Offered</h3>
+                        <ul class="programs-list">
+                            <li>
+                                <i class="fas fa-graduation-cap"></i>
+                                BSc in Computer Science
+                            </li>
+                            <li>
+                                <i class="fas fa-graduation-cap"></i>
+                                MSc in Computer Science
+                            </li>
+                            <li>
+                                <i class="fas fa-graduation-cap"></i>
+                                PhD in Computer Science
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dept-performance">
+                        <h3>Performance Metrics</h3>
+                        <div class="performance-chart">
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-line fa-3x"></i>
+                                <p>Performance metrics visualization coming soon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,700 @@
+/* Departments Page Specific Styles */
+
+.header-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.header-title h1 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    font-size: 1.8rem;
+}
+
+.header-title p {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+/* Departments Grid */
+.departments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.department-card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: var(--transition);
+}
+
+.department-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.dept-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.dept-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.dept-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.edit-btn, .delete-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.edit-btn {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
+
+.edit-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.delete-btn {
+    background-color: var(--background-color);
+    color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.department-card h3 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.dept-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.stat-item .label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.stat-item .value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.dept-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.dept-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--text-color);
+}
+
+.dept-info i {
+    color: var(--primary-color);
+    width: 20px;
+}
+
+.view-details-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.view-details-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Modal Styles */
+.confirmation-icon.warning {
+    color: #dc3545;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .departments-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .departments-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dept-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Add Department Button */
+.add-dept-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+    font-size: 1rem;
+    height: 45px;
+}
+
+.add-dept-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.add-dept-btn i {
+    font-size: 1.2rem;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--shadow-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Modal Animations */
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-content {
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+/* Loading States */
+.department-card.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.department-card.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Department Details Modal */
+.details-modal {
+    max-width: 800px;
+    width: 95%;
+}
+
+.dept-details-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.dept-overview h3,
+.dept-programs h3,
+.dept-performance h3 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.overview-item {
+    background-color: var(--background-color);
+    padding: 1.2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.overview-item .label {
+    display: block;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.overview-item .value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.programs-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.programs-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    color: var(--text-color);
+}
+
+.programs-list li i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* Adjust spacing for department cards */
+.departments-grid {
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.department-card {
+    margin: 0 auto;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Modal Base Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px var(--shadow-color);
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--shadow-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: var(--card-background);
+    z-index: 1;
+}
+
+.modal-header h2 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: var(--transition);
+    line-height: 1;
+}
+
+.close-modal:hover {
+    color: var(--primary-color);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+/* Performance Chart Section */
+.performance-chart {
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+}
+
+/* Modal Animations */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Responsive Modal Adjustments */
+@media (max-width: 768px) {
+    .details-modal {
+        width: 90%;
+        margin: 1rem;
+    }
+
+    .overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-header h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Delete Modal Styles */
+.confirmation-content {
+    max-width: 400px;
+    text-align: center;
+    padding: 2rem;
+}
+
+.confirmation-icon.warning {
+    font-size: 3rem;
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+.confirmation-content h2 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-family: var(--heading-font);
+}
+
+.confirmation-content p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.confirmation-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Modal Button Styles */
+.primary-btn,
+.secondary-btn,
+.delete-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 120px;
+    font-family: var(--body-font);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--background-color);
+    transform: translateY(-2px);
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--shadow-color);
+}
+
+/* Modal Form Styles */
+.modal-body .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.modal-body .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.modal-body .form-group input,
+.modal-body .form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--shadow-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    transition: var(--transition);
+}
+
+.modal-body .form-group input:focus,
+.modal-body .form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.1);
+}
+
+/* Responsive Modal Button Adjustments */
+@media (max-width: 480px) {
+    .confirmation-actions {
+        flex-direction: column;
+    }
+
+    .confirmation-actions button {
+        width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}
+
+/* Header Styles */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background-color: var(--card-background);
+    border-bottom: 1px solid var(--shadow-color);
+}
+
+.header-left {
+    flex: 1;
+}
+
+.header-title h1 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.header-title p {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Responsive Header Adjustments */
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .header-title {
+        text-align: center;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .add-dept-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-title h1 {
+        font-size: 1.5rem;
+    }
+
+    .header-right {
+        flex-direction: column;
+        gap: 1rem;
+    }
+} 

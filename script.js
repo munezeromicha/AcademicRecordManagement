@@ -89,7 +89,7 @@ if (loginForm) {
         };
         
         console.log('Login Data:', formData);
-        window.location.href = './dashboards/student-dashboard.html';
+        window.location.href = './dashboards/dean-departments.html';
     });
 } 
 
@@ -188,28 +188,113 @@ if (claimForm) {
         const confirmModal = document.getElementById('confirmationModal');
         confirmModal.classList.add('active');
     });
-} 
+}
 
-// Make sure this is at the end of your script.js file
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector(".hamburger");
-    const navLinks = document.querySelector(".nav-links");
+// Department Management Functions
+function openAddDeptModal() {
+    const modal = document.getElementById('addDeptModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
 
-    console.log('Hamburger:', hamburger); // Debug log
-    console.log('Nav Links:', navLinks); // Debug log
+function closeAddDeptModal() {
+    const modal = document.getElementById('addDeptModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
 
-    hamburger.addEventListener("click", () => {
-        console.log('Hamburger clicked!'); // Debug log
-        hamburger.classList.toggle("active");
-        navLinks.classList.toggle("active");
-        console.log('Nav Links classes:', navLinks.classList); // Debug log
+function openEditDeptModal(deptCode) {
+    const modal = document.getElementById('addDeptModal');
+    const form = document.getElementById('addDeptForm');
+    const title = modal.querySelector('.modal-header h2');
+    
+    // Populate form with department data (example data)
+    document.getElementById('deptName').value = 'Computer Science';
+    document.getElementById('deptCode').value = deptCode;
+    document.getElementById('hodName').value = 'Dr. Sarah Johnson';
+    document.getElementById('deptDesc').value = 'Department of Computer Science and Software Engineering';
+    
+    title.textContent = 'Edit Department';
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function confirmDeleteDept(deptCode) {
+    const modal = document.getElementById('deleteConfirmModal');
+    modal.dataset.deptCode = deptCode;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeDeleteConfirmModal() {
+    const modal = document.getElementById('deleteConfirmModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+function deleteDepartment() {
+    const modal = document.getElementById('deleteConfirmModal');
+    const deptCode = modal.dataset.deptCode;
+    console.log(`Deleting department: ${deptCode}`);
+    // Here you would normally make an API call to delete the department
+    closeDeleteConfirmModal();
+}
+
+function viewDepartmentDetails(deptCode) {
+    const modal = document.getElementById('deptDetailsModal');
+    const modalContent = modal.querySelector('.modal-content');
+    
+    // Update modal content based on department code
+    const deptName = document.querySelector(`[onclick="viewDepartmentDetails('${deptCode}')"]`)
+        .closest('.department-card')
+        .querySelector('h3').textContent;
+    
+    modal.querySelector('.modal-header h2').textContent = `${deptName} Details`;
+    
+    // Here you would normally fetch department details from the server
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Prevent modal from closing when clicking inside
+    modalContent.addEventListener('click', (e) => {
+        e.stopPropagation();
     });
+}
 
-    // Close menu when clicking a link
-    document.querySelectorAll(".nav-links a").forEach(n => 
-        n.addEventListener("click", () => {
-            hamburger.classList.remove("active");
-            navLinks.classList.remove("active");
-        })
-    );
-}); 
+function closeDeptDetailsModal() {
+    const modal = document.getElementById('deptDetailsModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', (e) => {
+    const deptDetailsModal = document.getElementById('deptDetailsModal');
+    if (e.target === deptDetailsModal) {
+        closeDeptDetailsModal();
+    }
+});
+
+// Handle department form submission
+const addDeptForm = document.getElementById('addDeptForm');
+if (addDeptForm) {
+    addDeptForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = {
+            name: document.getElementById('deptName').value,
+            code: document.getElementById('deptCode').value,
+            hod: document.getElementById('hodName').value,
+            description: document.getElementById('deptDesc').value
+        };
+        
+        console.log('Department Data:', formData);
+        closeAddDeptModal();
+    });
+}
+
+// Update navigation in dean dashboard
+const departmentsLink = document.querySelector('a[href="#"].nav-item:nth-child(2)');
+if (departmentsLink) {
+    departmentsLink.href = 'dean-departments.html';
+} 
