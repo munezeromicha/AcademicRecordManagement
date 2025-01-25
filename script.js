@@ -305,6 +305,12 @@ if (hodManagementLink) {
     hodManagementLink.href = 'dean-hod.html';
 }
 
+// Update School Performance navigation
+const performanceLink = document.querySelector('a[href="#"].nav-item:nth-child(4)');
+if (performanceLink) {
+    performanceLink.href = 'dean-performance.html';
+}
+
 // HOD Management Functions
 function openAddHodModal() {
     const modal = document.getElementById('addHodModal');
@@ -392,4 +398,38 @@ function closeProfileModal() {
     const modal = document.getElementById('viewProfileModal');
     modal.classList.remove('active');
     document.body.style.overflow = 'auto';
+}
+
+// Performance Report Modal Functions
+function openAddReportModal() {
+    const modal = document.getElementById('addReportModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeAddReportModal() {
+    const modal = document.getElementById('addReportModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Handle report form submission
+const reportForm = document.getElementById('reportForm');
+if (reportForm) {
+    reportForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = {
+            department: document.getElementById('department').value,
+            period: document.getElementById('period').value,
+            passRate: document.getElementById('passRate').value,
+            avgGPA: document.getElementById('avgGPA').value,
+            retentionRate: document.getElementById('retentionRate').value,
+            comments: document.getElementById('comments').value,
+            file: document.getElementById('reportFile').files[0]
+        };
+        
+        console.log('Report Data:', formData);
+        closeAddReportModal();
+    });
 } 
