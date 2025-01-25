@@ -89,7 +89,7 @@ if (loginForm) {
         };
         
         console.log('Login Data:', formData);
-        window.location.href = './dashboards/dean-departments.html';
+        window.location.href = './dashboards/dean-dashboard.html';
     });
 } 
 
@@ -498,4 +498,155 @@ if (profileImageInput) {
             reader.readAsDataURL(file);
         }
     });
+}
+
+// Lecturer Navigation
+const lecturerCoursesLink = document.querySelector('a[href="#"].nav-item:nth-child(2)');
+if (lecturerCoursesLink && window.location.href.includes('lecturer-dashboard')) {
+    lecturerCoursesLink.href = 'lecturer-courses.html';
+}
+const lecturerStudentsLink = document.querySelector('a[href="#"].nav-item:nth-child(3)');
+if (lecturerStudentsLink && window.location.href.includes('lecturer-dashboard')) {
+    lecturerCoursesLink.href = 'lecturer-students.html';
+}
+const lecturerMarksRecordLink = document.querySelector('a[href="#"].nav-item:nth-child(4)');
+if (lecturerMarksRecordLink && window.location.href.includes('lecturer-dashboard')) {
+    lecturerMarksRecordLink.href = 'lecturer-marks-records.html';
+}
+const lecturerReportsLink = document.querySelector('a[href="#"].nav-item:nth-child(5)');
+if (lecturerReportsLink && window.location.href.includes('lecturer-dashboard')) {
+    lecturerCoursesLink.href = 'lecturer-reports.html';
+}
+
+// Update active navigation state for lecturer pages
+const currentPage = window.location.pathname.split('/').pop();
+if (currentPage.startsWith('lecturer-')) {
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => item.classList.remove('active'));
+    
+    switch (currentPage) {
+        case 'lecturer-dashboard.html':
+            document.querySelector('.nav-item:nth-child(1)').classList.add('active');
+            break;
+        case 'lecturer-courses.html':
+            document.querySelector('.nav-item:nth-child(2)').classList.add('active');
+            break;
+        // Add more cases for other lecturer pages
+    }
+}
+
+// Bulk Marks Modal Functions
+function openBulkMarksModal() {
+    const modal = document.getElementById('bulkMarksModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeBulkMarksModal() {
+    const modal = document.getElementById('bulkMarksModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Handle bulk marks form submission
+const bulkMarksForm = document.getElementById('bulkMarksForm');
+if (bulkMarksForm) {
+    bulkMarksForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = {
+            course: document.getElementById('courseSelect').value,
+            level: document.getElementById('levelSelect').value,
+            marks: []
+        };
+        
+        // Collect marks from all rows
+        const rows = document.querySelectorAll('.bulk-marks-table tbody tr');
+        rows.forEach(row => {
+            const inputs = row.querySelectorAll('input[type="number"]');
+            formData.marks.push({
+                regNumber: row.cells[0].textContent,
+                studentName: row.cells[1].textContent,
+                assignment: inputs[0].value,
+                midTerm: inputs[1].value,
+                final: inputs[2].value
+            });
+        });
+        
+        console.log('Bulk Marks Data:', formData);
+        closeBulkMarksModal();
+    });
+}
+
+// Report Functions
+function generateReport() {
+    const courseSelect = document.getElementById('courseSelect');
+    const levelSelect = document.getElementById('levelSelect');
+    
+    if (!courseSelect.value || !levelSelect.value) {
+        alert('Please select both course and level');
+        return;
+    }
+    
+    // Here you would normally fetch the report data from the server
+    // For now, we'll just show the preview
+    document.querySelector('.report-preview').style.display = 'block';
+}
+
+function previewReport() {
+    // Open report in a new tab for preview
+    const reportContent = document.querySelector('.report-preview').cloneNode(true);
+    const newWindow = window.open('', '_blank');
+    newWindow.document.write('<html><head><title>Report Preview</title>');
+    
+    // Copy all stylesheets to the new window
+    document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
+        newWindow.document.write(link.outerHTML);
+    });
+    
+    newWindow.document.write('</head><body>');
+    newWindow.document.write(reportContent.outerHTML);
+    newWindow.document.write('</body></html>');
+    newWindow.document.close();
+}
+
+function printReport() {
+    window.print();
+}
+
+function submitReport() {
+    // Here you would normally send the report to the server
+    const confirmation = confirm('Are you sure you want to submit this report to the HOD?');
+    
+    if (confirmation) {
+        // Simulate submission
+        alert('Report submitted successfully to HOD');
+    }
+}
+
+// Calculate totals and statistics automatically
+function calculateStatistics() {
+    const rows = document.querySelectorAll('.report-table tbody tr');
+    let totalStudents = rows.length;
+    let passCount = 0;
+    let totalScore = 0;
+    
+    rows.forEach(row => {
+        const total = parseFloat(row.querySelector('td:nth-last-child(2)').textContent);
+        totalScore += total;
+        if (total >= 50) passCount++;
+    });
+    
+    const passRate = (passCount / totalStudents * 100).toFixed(1);
+    const averageScore = (totalScore / totalStudents).toFixed(1);
+    
+    // Update statistics
+    document.querySelector('.stat-value:nth-child(1)').textContent = totalStudents;
+    document.querySelector('.stat-value:nth-child(2)').textContent = passRate + '%';
+    document.querySelector('.stat-value:nth-child(3)').textContent = averageScore;
+}
+
+// Call statistics calculation when report is generated
+if (document.querySelector('.report-preview')) {
+    calculateStatistics();
 } 

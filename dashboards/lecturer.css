@@ -503,4 +503,598 @@
     .action-btn {
         padding: 1.2rem;
     }
+}
+
+/* Courses Page Styles */
+.courses-content {
+    padding: 2rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.semester-select {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid var(--shadow-color);
+    border-radius: var(--border-radius);
+    background-color: var(--card-background);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.semester-select:hover {
+    border-color: var(--primary-color);
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.course-card {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: var(--transition);
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.course-code {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.course-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.course-actions button {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0.5rem;
+}
+
+.course-actions button:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.course-title {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.course-info {
+    display: flex;
+    gap: 1.5rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.course-info span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.course-progress {
+    margin-bottom: 1.5rem;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: var(--background-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.course-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--shadow-color);
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+}
+
+.stat-label {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .courses-content {
+        padding: 1rem;
+    }
+
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Students Page Styles */
+.students-content {
+    padding: 2rem;
+}
+
+.filters-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.filter-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-select {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid var(--shadow-color);
+    border-radius: var(--border-radius);
+    background-color: var(--card-background);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-select:hover {
+    border-color: var(--primary-color);
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid var(--shadow-color);
+    border-radius: var(--border-radius);
+    background-color: var(--card-background);
+}
+
+.search-box input {
+    border: none;
+    background: none;
+    color: var(--text-color);
+    font-family: var(--body-font);
+    width: 200px;
+}
+
+.search-box input:focus {
+    outline: none;
+}
+
+.add-marks-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.add-marks-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.students-table {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    overflow-x: auto;
+}
+
+.students-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.students-table th,
+.students-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--shadow-color);
+}
+
+.students-table th {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.table-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.table-actions button {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0.5rem;
+}
+
+.table-actions button:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Edit Marks Modal Styles */
+.student-info {
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+}
+
+.student-info p {
+    margin: 0.5rem 0;
+}
+
+.marks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .marks-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .filters-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-group {
+        flex-direction: column;
+    }
+
+    .marks-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .students-table {
+        margin: 0 -1rem;
+    }
+}
+
+/* Bulk Marks Modal Styles */
+.bulk-marks-table {
+    margin: 1.5rem -1.5rem;
+    overflow-x: auto;
+}
+
+.bulk-marks-table table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.bulk-marks-table th {
+    background-color: var(--background-color);
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.bulk-marks-table td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--shadow-color);
+}
+
+.bulk-marks-table input[type="number"] {
+    width: 80px;
+    padding: 0.5rem;
+    border: 1px solid var(--shadow-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+}
+
+.bulk-marks-table input[type="number"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.1);
+}
+
+/* Modal Header Icon */
+.modal-header h2 i {
+    margin-right: 0.8rem;
+    color: var(--primary-color);
+}
+
+/* Reports Page Styles */
+.reports-content {
+    padding: 2rem;
+}
+
+.report-generation {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.report-filters {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.generate-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.generate-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* Report Preview Styles */
+.report-preview {
+    background-color: white;
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.report-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #000;
+}
+
+.university-logo img {
+    width: 120px;
+    height: auto;
+}
+
+.university-info {
+    text-align: center;
+}
+
+.university-info h2,
+.university-info h3,
+.university-info h4 {
+    margin: 0.5rem 0;
+    color: #000;
+}
+
+.report-details {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.course-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.report-table {
+    margin: 2rem 0;
+    overflow-x: auto;
+}
+
+.report-table table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000;
+}
+
+.report-table th,
+.report-table td {
+    padding: 0.8rem;
+    border: 1px solid #000;
+    text-align: center;
+}
+
+.report-table th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+}
+
+.report-summary {
+    margin: 2rem 0;
+}
+
+.statistics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: var(--border-radius);
+}
+
+.stat-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.report-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Print Button Specific Style */
+.report-actions button.secondary-btn i.fa-print {
+    color: var(--primary-color);
+}
+
+.report-actions button.secondary-btn:hover i.fa-print {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .report-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .statistics {
+        grid-template-columns: 1fr;
+    }
+
+    .report-preview {
+        padding: 1.5rem;
+    }
+
+    .report-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .course-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .report-preview,
+    .report-preview * {
+        visibility: visible;
+    }
+
+    .report-preview {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        box-shadow: none;
+    }
+
+    .report-actions {
+        display: none;
+    }
+
+    /* Ensure tables break correctly across pages */
+    .report-table {
+        page-break-inside: auto;
+    }
+
+    .report-table tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    /* Improve table borders for printing */
+    .report-table th,
+    .report-table td {
+        border: 1px solid #000 !important;
+    }
+
+    /* Ensure proper page margins */
+    @page {
+        margin: 2cm;
+    }
 } 

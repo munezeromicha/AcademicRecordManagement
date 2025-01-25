@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses - Lecturer Dashboard</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logo.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="lecturer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/logo.png" alt="Logo" class="dashboard-logo">
+                <span class="dashboard-title">Academic Record Management System</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="lecturer-dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="lecturer-courses.html" class="nav-item active">
+                    <i class="fas fa-book"></i>
+                    <span>My Courses</span>
+                </a>
+                <a href="lecturer-students.html" class="nav-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>Students</span>
+                </a>
+                <a href="lecturer-marks-records.html" class="nav-item">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Mark Records</span>
+                </a>
+                <a href="lecturer-reports.html" class="nav-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="lecturer-settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="theme-toggle" title="Toggle dark/light theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="header-title">
+                        <h1>My Courses</h1>
+                        <p>Manage and view your assigned courses</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <span class="user-name">Dr. John Smith</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="courses-content">
+                <!-- Semester Filter -->
+                <div class="section-header">
+                    <div class="semester-filter">
+                        <select class="semester-select">
+                            <option value="current">Current Semester</option>
+                            <option value="previous">Previous Semester</option>
+                            <option value="all">All Semesters</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Courses Grid -->
+                <div class="courses-grid">
+                    <!-- Course Card -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <div class="course-code" style="color: white;">CSC 301</div>
+                            <div class="course-actions">
+                                <button title="View Details"><i class="fas fa-eye"></i></button>
+                                <button title="Download Resources"><i class="fas fa-download"></i></button>
+                            </div>
+                        </div>
+                        <h3 class="course-title">Advanced Programming</h3>
+                        <div class="course-info">
+                            <span><i class="fas fa-users"></i> 45 Students</span>
+                            <span><i class="fas fa-clock"></i> 3 Credits</span>
+                        </div>
+                        <div class="course-progress">
+                            <div class="progress-label">
+                                <span>Course Progress</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="course-stats">
+                            <div class="stat">
+                                <span class="stat-value">42/45</span>
+                                <span class="stat-label">Submissions</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">85%</span>
+                                <span class="stat-label">Pass Rate</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More Course Cards -->
+                    <!-- Similar structure repeated for other courses -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html> 

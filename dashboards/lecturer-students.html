@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students - Lecturer Dashboard</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logo.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="lecturer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/logo.png" alt="Logo" class="dashboard-logo">
+                <span class="dashboard-title">Academic Record Management System</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="lecturer-dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="lecturer-courses.html" class="nav-item">
+                    <i class="fas fa-book"></i>
+                    <span>My Courses</span>
+                </a>
+                <a href="lecturer-students.html" class="nav-item active">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>Students</span>
+                </a>
+                <a href="lecturer-marks-records.html" class="nav-item">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Mark Records</span>
+                </a>
+                <a href="lecturer-reports.html" class="nav-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="lecturer-settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="theme-toggle" title="Toggle dark/light theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="header-title">
+                        <h1>Students</h1>
+                        <p>Manage and view student records</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <span class="user-name">Dr. John Smith</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="students-content">
+                <!-- Filters Section -->
+                <div class="filters-section">
+                    <div class="filter-group">
+                        <select class="filter-select" id="levelFilter">
+                            <option value="all">All Levels</option>
+                            <option value="1">Level 1</option>
+                            <option value="2">Level 2</option>
+                            <option value="3">Level 3</option>
+                            <option value="4">Level 4</option>
+                        </select>
+                        <select class="filter-select" id="courseFilter">
+                            <option value="all">All Courses</option>
+                            <option value="CSC301">CSC 301</option>
+                            <option value="CSC302">CSC 302</option>
+                        </select>
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search students...">
+                        </div>
+                    </div>
+                    <button class="add-marks-btn" onclick="openBulkMarksModal()">
+                        <i class="fas fa-plus"></i> Add Students Marks
+                    </button>
+                </div>
+
+                <!-- Students Table -->
+                <div class="students-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Reg. Number</th>
+                                <th>Name</th>
+                                <th>Level</th>
+                                <th>Course</th>
+                                <th>Assignment (30%)</th>
+                                <th>Mid-Term (20%)</th>
+                                <th>Final (50%)</th>
+                                <th>Total</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>222013063</td>
+                                <td>John Doe</td>
+                                <td>Level 3</td>
+                                <td>CSC 301</td>
+                                <td>25</td>
+                                <td>18</td>
+                                <td>45</td>
+                                <td>88</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button title="Edit Marks" onclick="openEditMarksModal('222013063')">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button title="View Details">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- More student rows... -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Marks Modal -->
+    <div id="editMarksModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Student Marks</h2>
+                <button class="close-modal" onclick="closeEditMarksModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editMarksForm">
+                    <div class="student-info">
+                        <p><strong>Student:</strong> John Doe</p>
+                        <p><strong>Reg. Number:</strong> 222013063</p>
+                        <p><strong>Course:</strong> CSC 301 - Advanced Programming</p>
+                    </div>
+                    <div class="marks-grid">
+                        <div class="form-group">
+                            <label>Assignment (30%)</label>
+                            <input type="number" min="0" max="30" value="25" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mid-Term (20%)</label>
+                            <input type="number" min="0" max="20" value="18" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Final Exam (50%)</label>
+                            <input type="number" min="0" max="50" value="45" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Comments</label>
+                        <textarea rows="3" placeholder="Add any comments..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="secondary-btn" onclick="closeEditMarksModal()">Cancel</button>
+                        <button type="submit" class="primary-btn">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bulk Marks Modal -->
+    <div id="bulkMarksModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-file-import"></i> Add Students Marks</h2>
+                <button class="close-modal" onclick="closeBulkMarksModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="bulkMarksForm">
+                    <div class="form-group">
+                        <!-- <label for="courseSelect">Select Course</label> -->
+                        <select id="courseSelect" required>
+                            <option value="">Choose a course...</option>
+                            <option value="CSC301">CSC 301 - Advanced Programming</option>
+                            <option value="CSC302">CSC 302 - Database Systems</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="levelSelect">Select Level</label> -->
+                        <select id="levelSelect" required>
+                            <option value="">Choose a level...</option>
+                            <option value="1">Level 1</option>
+                            <option value="2">Level 2</option>
+                            <option value="3">Level 3</option>
+                            <option value="4">Level 4</option>
+                        </select>
+                    </div>
+                    <div class="bulk-marks-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Reg. Number</th>
+                                    <th>Student Name</th>
+                                    <th>Assignment (30%)</th>
+                                    <th>Mid-Term (20%)</th>
+                                    <th>Final (50%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>222013066</td>
+                                    <td>John Doe</td>
+                                    <td><input type="number" min="0" max="30" required></td>
+                                    <td><input type="number" min="0" max="20" required></td>
+                                    <td><input type="number" min="0" max="50" required></td>
+                                </tr>
+                                <tr>
+                                    <td>222013063</td>
+                                    <td>Jane Smith</td>
+                                    <td><input type="number" min="0" max="30" required></td>
+                                    <td><input type="number" min="0" max="20" required></td>
+                                    <td><input type="number" min="0" max="50" required></td>
+                                </tr>
+                                <!-- Add more rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="secondary-btn" onclick="closeBulkMarksModal()">Cancel</button>
+                        <button type="submit" class="primary-btn">Save All Marks</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
