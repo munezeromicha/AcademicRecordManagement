@@ -311,6 +311,12 @@ if (performanceLink) {
     performanceLink.href = 'dean-performance.html';
 }
 
+// Update Settings navigation
+const settingsLink = document.querySelector('a[href="#"].nav-item:nth-child(5)');
+if (settingsLink) {
+    settingsLink.href = 'dean-settings.html';
+}
+
 // HOD Management Functions
 function openAddHodModal() {
     const modal = document.getElementById('addHodModal');
@@ -431,5 +437,65 @@ if (reportForm) {
         
         console.log('Report Data:', formData);
         closeAddReportModal();
+    });
+}
+
+// Settings Page Functions
+const profileForm = document.getElementById('profileForm');
+if (profileForm) {
+    profileForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = {
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value
+        };
+        console.log('Profile Data:', formData);
+        // Here you would normally send the data to the server
+    });
+}
+
+const securityForm = document.getElementById('securityForm');
+if (securityForm) {
+    securityForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = {
+            currentPassword: document.getElementById('currentPassword').value,
+            newPassword: document.getElementById('newPassword').value,
+            confirmPassword: document.getElementById('confirmPassword').value
+        };
+        console.log('Security Data:', formData);
+        // Here you would normally send the data to the server
+    });
+}
+
+const notificationForm = document.getElementById('notificationForm');
+if (notificationForm) {
+    notificationForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = {
+            emailNotifications: notificationForm.querySelector('input[type="checkbox"]:nth-of-type(1)').checked,
+            performanceReports: notificationForm.querySelector('input[type="checkbox"]:nth-of-type(2)').checked,
+            departmentUpdates: notificationForm.querySelector('input[type="checkbox"]:nth-of-type(3)').checked
+        };
+        console.log('Notification Settings:', formData);
+        // Here you would normally send the data to the server
+    });
+}
+
+// Handle profile image upload
+const profileImageInput = document.getElementById('profileImage');
+if (profileImageInput) {
+    profileImageInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imagePreview = document.querySelector('.image-preview');
+                imagePreview.innerHTML = `<img src="${e.target.result}" alt="Profile Photo">`;
+            };
+            reader.readAsDataURL(file);
+        }
     });
 } 

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Dean Dashboard</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logo.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="dean.css">
+    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/logo.png" alt="Logo" class="dashboard-logo">
+                <span class="dashboard-title">Academic Record Management System</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dean-dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="dean-departments.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Departments</span>
+                </a>
+                <a href="dean-hod.html" class="nav-item">
+                    <i class="fas fa-user-tie"></i>
+                    <span>HOD Management</span>
+                </a>
+                <a href="dean-performance.html" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>School Performance</span>
+                </a>
+                <a href="dean-settings.html" class="nav-item active">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="theme-toggle" title="Toggle dark/light theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="header-title">
+                        <h1>Settings</h1>
+                        <p>Manage your account settings and preferences</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <span class="user-name">Dr. John Smith</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="settings-content">
+                <div class="settings-grid">
+                    <!-- Profile Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h2><i class="fas fa-user"></i> Profile Settings</h2>
+                        </div>
+                        <form id="profileForm" class="settings-form">
+                            <div class="profile-image">
+                                <div class="image-preview">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="image-upload">
+                                    <label for="profileImage" class="upload-btn">
+                                        <i class="fas fa-camera"></i> Change Photo
+                                    </label>
+                                    <input type="file" id="profileImage" accept="image/*" hidden>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="firstName">First Name</label> -->
+                                <input type="text" id="firstName" value="John" required>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="lastName">Last Name</label> -->
+                                <input type="text" id="lastName" value="Smith" required>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="email">Email</label> -->
+                                <input type="email" id="email" value="john.smith@university.edu" required>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="phone">Phone Number</label> -->
+                                <input type="tel" id="phone" value="+1234567890" required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="primary-btn">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h2><i class="fas fa-lock"></i> Security Settings</h2>
+                        </div>
+                        <form id="securityForm" class="settings-form">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" id="newPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password</label>
+                                <input type="password" id="confirmPassword" required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="primary-btn">Update Password</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Notification Settings -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h2><i class="fas fa-bell"></i> Notification Settings</h2>
+                        </div>
+                        <form id="notificationForm" class="settings-form">
+                            <div class="notification-option">
+                                <label class="toggle-label">
+                                    <span>Email Notifications</span>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </div>
+                                </label>
+                                <p class="option-description">Receive email notifications about important updates</p>
+                            </div>
+                            <div class="notification-option">
+                                <label class="toggle-label">
+                                    <span>Performance Reports</span>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </div>
+                                </label>
+                                <p class="option-description">Get notified when new performance reports are available</p>
+                            </div>
+                            <div class="notification-option">
+                                <label class="toggle-label">
+                                    <span>Department Updates</span>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </div>
+                                </label>
+                                <p class="option-description">Receive updates about department activities</p>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="primary-btn">Save Preferences</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html> 
