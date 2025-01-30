@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - HOD Dashboard</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logo.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="hod.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/logo.png" alt="Logo" class="dashboard-logo">
+                <span class="dashboard-title">Academic Record Management System</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="hod-dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="hod-lecturers.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Lecturers</span>
+                </a>
+                <a href="hod-students.html" class="nav-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>Students</span>
+                </a>
+                <a href="hod-courses.html" class="nav-item">
+                    <i class="fas fa-book"></i>
+                    <span>Courses</span>
+                </a>
+                <a href="hod-performance.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Performance</span>
+                </a>
+                <a href="hod-reports.html" class="nav-item active">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="hod-settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="theme-toggle" title="Toggle dark/light theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="dashboard-main hod-reports">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="header-title">
+                        <h1>Academic Reports</h1>
+                        <p>Generate and manage comprehensive academic reports</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="export-btn" onclick="exportAllReports()" title="Export all reports">
+                        <i class="fas fa-file-export"></i> Export All Reports
+                    </button>
+                </div>
+            </header>
+
+            <div class="hod-reports-content">
+                <!-- Report Generation Section -->
+                <div class="report-section">
+                    <div class="section-header">
+                        <h3>Generate Reports</h3>
+                        <div class="report-filters">
+                            <select class="filter-select" id="reportType">
+                                <option value="">Select Report Type</option>
+                                <option value="attendance">Attendance Report</option>
+                                <option value="performance">Performance Report</option>
+                                <option value="grades">Grade Report</option>
+                                <option value="lecturer">Lecturer Report</option>
+                            </select>
+                            <select class="filter-select" id="timePeriod">
+                                <option value="">Select Time Period</option>
+                                <option value="week">Past Week</option>
+                                <option value="month">Past Month</option>
+                                <option value="semester">Current Semester</option>
+                                <option value="year">Academic Year</option>
+                            </select>
+                            <button class="generate-btn" onclick="generateReport()" title="Generate selected report">
+                                <i class="fas fa-sync"></i> Generate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reports Grid -->
+                <div class="reports-grid">
+                    <div class="report-card">
+                        <div class="report-header">
+                            <div class="report-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="report-title">
+                                <h3>Performance Report</h3>
+                                <p>Comprehensive analysis of student and course performance</p>
+                            </div>
+                        </div>
+                        <div class="report-actions">
+                            <button class="download-btn" onclick="downloadReport('performance')">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Add more report cards -->
+                </div>
+
+                <!-- Report History -->
+                <div class="report-history">
+                    <div class="section-header">
+                        <h3>Report History</h3>
+                        <div class="history-filters">
+                            <input type="text" placeholder="Search reports..." class="search-input">
+                            <select class="filter-select">
+                                <option value="all">All Types</option>
+                                <option value="attendance">Attendance</option>
+                                <option value="performance">Performance</option>
+                                <option value="grades">Grades</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="history-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Report Name</th>
+                                    <th>Type</th>
+                                    <th>Generated Date</th>
+                                    <th>Generated By</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>March Attendance Report</td>
+                                    <td>Attendance</td>
+                                    <td>2024-03-15</td>
+                                    <td>Dr. John Smith</td>
+                                    <td><span class="status-badge complete">Complete</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="view-btn" onclick="viewHistoryReport(1)">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="download-btn" onclick="downloadHistoryReport(1)">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                            <button class="delete-btn" onclick="deleteHistoryReport(1)">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,4 +1,42 @@
 /* Student Dashboard Specific Styles */
+.student-dashboard {
+    padding: 2rem;
+}
+
+.student-courses {
+    padding: 2rem;
+}
+
+.student-performance {
+    padding: 2rem;
+}
+
+/* Student specific card styles */
+.student-dashboard .courses-grid,
+.student-courses .courses-grid,
+.student-performance .performance-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 800px);
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* Card styles */
+.student-card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    margin-bottom: 1rem;
+}
+
+/* Stats grid */
+.student-stats {
+    display: grid;
+    grid-template-columns: minmax(0, 800px);
+    justify-content: center;
+    gap: 1.5rem;
+}
 
 /* Student Info Header */
 .student-info {
@@ -494,4 +532,874 @@
     color: var(--text-light);
     margin-top: 0.5rem;
     font-size: 0.9rem;
+}
+
+/* Student Courses Page Component */
+.student-courses-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Course Statistics */
+.course-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    transition: var(--transition);
+}
+
+/* Course Grid Layout */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Course Card Component */
+.course-card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.course-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--shadow-color);
+}
+
+.course-title h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.course-code {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Course Progress Ring */
+.progress-ring {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: conic-gradient(var(--primary-color) 85%, var(--shadow-color) 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.progress-ring::before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    background: var(--card-background);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.progress-value {
+    position: relative;
+    z-index: 1;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Courses Container and Pagination */
+.courses-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.courses-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.page-indicators {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.page-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--shadow-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.page-dot.active {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+.page-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--shadow-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.page-btn:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Course Info and Status */
+.course-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--shadow-color);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.info-item i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    width: 20px;
+}
+
+.course-status {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.status-item {
+    text-align: center;
+}
+
+.status-item .label {
+    display: block;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.status-item .value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Course Action Buttons */
+.course-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+}
+
+.course-actions button {
+    padding: 0.8rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.materials-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.assignments-btn {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.forum-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.course-actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+/* Student Progress Page Component */
+.student-progress-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Progress Overview Cards */
+.overview-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.overview-card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.card-info h3 {
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-info .value {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.3rem;
+}
+
+/* Progress Section Styles */
+.progress-section {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.chart-container {
+    height: 300px;
+    margin-top: 1.5rem;
+}
+
+/* Performance Grid */
+.performance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.performance-card {
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.grade {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Grade Breakdown */
+.grade-item {
+    margin-bottom: 1rem;
+}
+
+.grade-item .label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: var(--shadow-color);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
+
+.progress-bar .progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+}
+
+/* Insights Grid */
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.insight-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.insight-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.insight-icon.warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.insight-icon.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Download Progress Button */
+.download-progress-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.download-progress-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Select Styles */
+.period-select,
+.semester-select {
+    padding: 0.8rem 2.5rem 0.8rem 1rem;
+    border: 1px solid var(--shadow-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236b7280'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 1.5rem;
+    min-width: 180px;
+}
+
+.period-select:hover,
+.semester-select:hover {
+    border-color: var(--primary-color);
+}
+
+.period-select:focus,
+.semester-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.1);
+}
+
+/* Filter Group */
+.filter-group {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Section Headers */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--shadow-color);
+}
+
+.section-header h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-color);
+    font-family: var(--heading-font);
+}
+
+/* Trend and Status Badges */
+.trend {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.trend.positive {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+}
+
+.trend.negative {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.status-badge.excellent {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+    
+    .period-select,
+    .semester-select {
+        width: 100%;
+        min-width: unset;
+    }
+    
+    .download-progress-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Student Claims Page Component */
+.student-claims-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* New Claim Button */
+.new-claim-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.new-claim-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Claims List */
+.claim-card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+.claim-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.claim-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.claim-type {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.claim-status {
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.claim-status.pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.claim-status.approved {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.claim-status.rejected {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.claim-details h3 {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.claim-details p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.claim-meta {
+    display: flex;
+    gap: 1.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.claim-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-feedback {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+}
+
+.admin-feedback p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+}
+
+.claim-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.claim-actions button {
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.view-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.edit-btn {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--shadow-color);
+}
+
+/* Status and Type Selects */
+.status-select,
+.type-select {
+    padding: 0.8rem 2.5rem 0.8rem 1rem;
+    border: 1px solid var(--shadow-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 150px;
+}
+
+/* Student Settings Page Component */
+.student-settings-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Settings Section */
+.settings-section {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    overflow: hidden;
+}
+
+.settings-section h2 {
+    padding: 1.5rem;
+    margin: 0;
+    border-bottom: 1px solid var(--shadow-color);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.settings-section h2 i {
+    color: var(--primary-color);
+}
+
+.settings-card {
+    padding: 1.5rem;
+}
+
+/* Profile Picture Section */
+.profile-picture-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.picture-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.upload-btn {
+    padding: 0.8rem 1.2rem;
+    background-color: var(--background-color);
+    border: 1px solid var(--shadow-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.upload-btn:hover {
+    background-color: var(--shadow-color);
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Toggle Switch */
+.toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    cursor: pointer;
+    transition: var(--transition);
+    border-radius: var(--border-radius);
+}
+
+.toggle-label:hover {
+    background-color: var(--shadow-color);
+}
+
+.toggle-text {
+    flex: 1;
+    color: var(--text-color);
+}
+
+/* Save Button */
+.save-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.save-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .student-settings-content {
+        padding: 1rem;
+    }
+    
+    .profile-picture-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .save-btn {
+        width: 100%;
+        justify-content: center;
+    }
 } 

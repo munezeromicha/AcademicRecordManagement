@@ -518,6 +518,32 @@ if (lecturerReportsLink && window.location.href.includes('lecturer-dashboard')) 
     lecturerCoursesLink.href = 'lecturer-reports.html';
 }
 
+// hod Navigation
+const hodLecturersLink = document.querySelector('a[href="#"].nav-item:nth-child(2)');
+if (hodLecturersLink && window.location.href.includes('hod-dashboard')) {
+    hodLecturersLink.href = 'hod-lecturers.html';
+}
+const hodStudentsLink = document.querySelector('a[href="#"].nav-item:nth-child(3)');
+if (hodStudentsLink && window.location.href.includes('hod-dashboard')) {
+    hodStudentsLink.href = 'hod-students.html';
+}
+const hodCoursesLink = document.querySelector('a[href="#"].nav-item:nth-child(4)');
+if (hodCoursesLink && window.location.href.includes('hod-dashboard')) {
+    hodCoursesLink.href = 'hod-courses.html';
+}
+const hodPerformanceLink = document.querySelector('a[href="#"].nav-item:nth-child(5)');
+if (hodPerformanceLink && window.location.href.includes('hod-dashboard')) {
+    hodPerformanceLink.href = 'hod-performance.html';
+}
+const hodReportsLink = document.querySelector('a[href="#"].nav-item:nth-child(6)');
+if (hodReportsLink && window.location.href.includes('hod-dashboard')) {
+    hodReportsLink.href = 'hod-reports.html';
+}
+const hodSettingsLink = document.querySelector('a[href="#"].nav-item:nth-child(7)');
+if (hodSettingsLink && window.location.href.includes('hod-dashboard')) {
+    hodSettingsLink.href = 'hod-settings.html';
+}
+
 // Update active navigation state for lecturer pages
 const currentPage = window.location.pathname.split('/').pop();
 if (currentPage.startsWith('lecturer-')) {
@@ -577,6 +603,30 @@ if (bulkMarksForm) {
         closeBulkMarksModal();
     });
 }
+
+
+//student navigations
+const studentDashboardLink = document.querySelector('a[href="#"].nav-item:nth-child(1)');
+if (studentDashboardLink && window.location.href.includes('student-dashboard')) {
+    studentDashboardLink.href = 'student-dashboard.html';
+}
+const studentCoursesLink = document.querySelector('a[href="#"].nav-item:nth-child(2)');
+if (studentCoursesLink && window.location.href.includes('student-dashboard')) {
+    studentCoursesLink.href = 'student-courses.html';
+}
+const studentMarksLink = document.querySelector('a[href="#"].nav-item:nth-child(3)');
+if (studentMarksLink && window.location.href.includes('student-dashboard')) {
+    studentMarksLink.href = 'student-academic-progress.html';
+}
+const studentReportsLink = document.querySelector('a[href="#"].nav-item:nth-child(4)');
+if (studentReportsLink && window.location.href.includes('student-dashboard')) {
+    studentReportsLink.href = 'student-claims-history.html';
+}
+const studentSettingsLink = document.querySelector('a[href="#"].nav-item:nth-child(5)');
+if (studentSettingsLink && window.location.href.includes('student-dashboard')) {
+    studentSettingsLink.href = 'student-settings.html';
+}
+
 
 // Report Functions
 function generateReport() {

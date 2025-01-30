@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Progress - Student Dashboard</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logo.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="student.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/logo.png" alt="Logo" class="dashboard-logo">
+                <span class="dashboard-title">Academic Record Management System</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="student-dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="student-courses.html" class="nav-item">
+                    <i class="fas fa-book"></i>
+                    <span>My Courses</span>
+                </a>
+                <a href="student-academic-progress.html" class="nav-item active">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Academic Progress</span>
+                </a>
+                <a href="student-claims-history.html" class="nav-item">
+                    <i class="fas fa-history"></i>
+                    <span>Claims History</span>
+                </a>
+                <a href="student-settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="theme-toggle" title="Toggle dark/light theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="dashboard-main student-progress">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="header-title">
+                        <h1>Academic Progress</h1>
+                        <p>Track your academic performance and achievements</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="download-progress-btn">
+                        <i class="fas fa-download"></i>
+                        Download Report
+                    </button>
+                </div>
+            </header>
+
+            <div class="student-progress-content">
+                <!-- Progress Overview Cards -->
+                <div class="progress-overview">
+                    <div class="overview-cards">
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Current GPA</h3>
+                                <p class="value">3.8</p>
+                                <span class="trend positive">
+                                    <i class="fas fa-arrow-up"></i> 0.2
+                                </span>
+                            </div>
+                        </div>
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Credits Earned</h3>
+                                <p class="value">75/120</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 62.5%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Attendance Rate</h3>
+                                <p class="value">92%</p>
+                                <span class="status-badge excellent">Excellent</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GPA Trend Chart -->
+                <div class="progress-section">
+                    <div class="section-header">
+                        <h2>GPA Trend</h2>
+                        <select class="period-select">
+                            <option value="all">All Semesters</option>
+                            <option value="year">This Year</option>
+                            <option value="semester">This Semester</option>
+                        </select>
+                    </div>
+                    <div class="chart-container">
+                        <div class="gpa-chart">
+                            <!-- Chart will be rendered here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Performance -->
+                <div class="progress-section">
+                    <div class="section-header">
+                        <h2>Course Performance</h2>
+                        <div class="filter-group">
+                            <select class="semester-select">
+                                <option value="current">Current Semester</option>
+                                <option value="previous">Previous Semester</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="performance-grid">
+                        <div class="performance-card">
+                            <div class="course-header">
+                                <h3>Advanced Programming</h3>
+                                <span class="grade">A</span>
+                            </div>
+                            <div class="grade-breakdown">
+                                <div class="grade-item">
+                                    <span class="label">Assignments</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 90%"></div>
+                                    </div>
+                                    <span class="value">90%</span>
+                                </div>
+                                <div class="grade-item">
+                                    <span class="label">Mid-Term</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 85%"></div>
+                                    </div>
+                                    <span class="value">85%</span>
+                                </div>
+                                <div class="grade-item">
+                                    <span class="label">Final Exam</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 88%"></div>
+                                    </div>
+                                    <span class="value">88%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more performance cards -->
+                    </div>
+                </div>
+
+                <!-- Improvement Insights -->
+                <div class="progress-section">
+                    <div class="section-header">
+                        <h2>Improvement Insights</h2>
+                    </div>
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <div class="insight-icon warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h3>Attendance Alert</h3>
+                                <p>Your attendance in Database Systems has dropped below 80%. Regular attendance can help improve your performance.</p>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon success">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h3>Strong Performance</h3>
+                                <p>Excellent progress in Programming! Keep up the good work to maintain your A grade.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

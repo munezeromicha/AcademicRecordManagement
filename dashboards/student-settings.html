@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Student Dashboard</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logo.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="student.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Same sidebar as other student pages -->
+            <div class="sidebar-header">
+                <img src="../assets/logo.png" alt="Logo" class="dashboard-logo">
+                <span class="dashboard-title">Academic Record Management System</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="student-dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="student-courses.html" class="nav-item">
+                    <i class="fas fa-book"></i>
+                    <span>My Courses</span>
+                </a>
+                <a href="student-academic-progress.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Academic Progress</span>
+                </a>
+                <a href="student-claims-history.html" class="nav-item">
+                    <i class="fas fa-history"></i>
+                    <span>Claims History</span>
+                </a>
+                <a href="student-settings.html" class="nav-item active">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="theme-toggle" title="Toggle dark/light theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="dashboard-main student-settings">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="header-title">
+                        <h1>Settings</h1>
+                        <p>Manage your account preferences and settings</p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="student-settings-content">
+                <!-- Profile Settings -->
+                <div class="settings-section">
+                    <h2><i class="fas fa-user"></i> Profile Settings</h2>
+                    <div class="settings-card">
+                        <form class="settings-form">
+                            <div class="profile-picture-section">
+                                <div class="profile-picture">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="picture-upload">
+                                    <button type="button" class="upload-btn">
+                                        <i class="fas fa-camera"></i>
+                                        Change Profile Picture
+                                    </button>
+                                    <span class="text-light">Maximum file size: 2MB</span>
+                                </div>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" value="John" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" value="Smith" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="studentId">Student ID</label>
+                                    <input type="text" id="studentId" value="222013063" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" value="john.smith@university.edu" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" value="+1234567890">
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="save-btn">
+                                    <i class="fas fa-save"></i>
+                                    Save Changes
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Security Settings -->
+                <div class="settings-section">
+                    <h2><i class="fas fa-shield-alt"></i> Security Settings</h2>
+                    <div class="settings-card">
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" id="newPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password</label>
+                                <input type="password" id="confirmPassword" required>
+                            </div>
+                            <div class="security-options">
+                                <label class="toggle-label">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-text">Enable Two-Factor Authentication</span>
+                                </label>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="save-btn">
+                                    <i class="fas fa-lock"></i>
+                                    Update Security Settings
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Notification Preferences -->
+                <div class="settings-section">
+                    <h2><i class="fas fa-bell"></i> Notification Preferences</h2>
+                    <div class="settings-card">
+                        <div class="notification-options">
+                            <label class="toggle-label">
+                                <input type="checkbox" checked>
+                                <span class="toggle-text">Email Notifications</span>
+                            </label>
+                            <label class="toggle-label">
+                                <input type="checkbox" checked>
+                                <span class="toggle-text">Assignment Reminders</span>
+                            </label>
+                            <label class="toggle-label">
+                                <input type="checkbox" checked>
+                                <span class="toggle-text">Grade Updates</span>
+                            </label>
+                            <label class="toggle-label">
+                                <input type="checkbox">
+                                <span class="toggle-text">Course Announcements</span>
+                            </label>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="save-btn">
+                                <i class="fas fa-save"></i>
+                                Save Preferences
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

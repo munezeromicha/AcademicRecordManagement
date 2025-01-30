@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses - Student Dashboard</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logo.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="student.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="dashboard-container">
+        <!-- Sidebar (Same as student-dashboard.html) -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/logo.png" alt="Logo" class="dashboard-logo">
+                <span class="dashboard-title">Academic Record Management System</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="student-dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="student-courses.html" class="nav-item active">
+                    <i class="fas fa-book"></i>
+                    <span>My Courses</span>
+                </a>
+                <a href="student-academic-progress.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Academic Progress</span>
+                </a>
+                <a href="student-claims-history.html" class="nav-item">
+                    <i class="fas fa-history"></i>
+                    <span>Claims History</span>
+                </a>
+                <a href="student-settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="theme-toggle" title="Toggle dark/light theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="dashboard-main student-courses">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="header-title">
+                        <h1>My Courses</h1>
+                        <p>View and manage your enrolled courses</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="course-filters">
+                        <select class="semester-select">
+                            <option value="current">Current Semester</option>
+                            <option value="previous">Previous Semester</option>
+                            <option value="all">All Courses</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+
+            <div class="student-courses-content">
+                <!-- Course Statistics -->
+                <div class="course-stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Enrolled Courses</h3>
+                            <p class="stat-value">6</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Pending Tasks</h3>
+                            <p class="stat-value">8</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Average Progress</h3>
+                            <p class="stat-value">78%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Courses Grid -->
+                <div class="courses-grid">
+                    <!-- Course Cards Container -->
+                    <div class="courses-container">
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-title">
+                                    <h3>Advanced Programming</h3>
+                                    <span class="course-code">CS301</span>
+                                </div>
+                                <div class="course-progress">
+                                    <div class="progress-ring">
+                                        <span class="progress-value">85%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-info">
+                                <div class="info-item">
+                                    <i class="fas fa-user-tie"></i>
+                                    <span>Dr. John Smith</span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Mon, Wed 10:00 AM</span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>45 Students</span>
+                                </div>
+                            </div>
+                            <div class="course-status">
+                                <div class="status-item">
+                                    <span class="label">Assignments</span>
+                                    <span class="value">12/15</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="label">Attendance</span>
+                                    <span class="value">92%</span>
+                                </div>
+                            </div>
+                            <div class="course-actions">
+                                <button class="materials-btn">
+                                    <i class="fas fa-book"></i>
+                                    Materials
+                                </button>
+                                <button class="assignments-btn">
+                                    <i class="fas fa-tasks"></i>
+                                    Assignments
+                                </button>
+                                <button class="forum-btn">
+                                    <i class="fas fa-comments"></i>
+                                    Forum
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Add more course cards -->
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-title">
+                                    <h3>Database Systems</h3>
+                                    <span class="course-code">CS302</span>
+                                </div>
+                                <div class="course-progress">
+                                    <div class="progress-ring">
+                                        <span class="progress-value">75%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-info">
+                                <div class="info-item">
+                                    <i class="fas fa-user-tie"></i>
+                                    <span>Dr. Jane Doe</span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Tue, Thu 11:00 AM</span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>38 Students</span>
+                                </div>
+                            </div>
+                            <div class="course-status">
+                                <div class="status-item">
+                                    <span class="label">Assignments</span>
+                                    <span class="value">10/12</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="label">Attendance</span>
+                                    <span class="value">88%</span>
+                                </div>
+                            </div>
+                            <div class="course-actions">
+                                <button class="materials-btn">
+                                    <i class="fas fa-book"></i>
+                                    Materials
+                                </button>
+                                <button class="assignments-btn">
+                                    <i class="fas fa-tasks"></i>
+                                    Assignments
+                                </button>
+                                <button class="forum-btn">
+                                    <i class="fas fa-comments"></i>
+                                    Forum
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination Controls -->
+                    <div class="courses-pagination">
+                        <button class="page-btn" disabled title="Previous page">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="page-indicators">
+                            <span class="page-dot active"></span>
+                            <span class="page-dot"></span>
+                            <span class="page-dot"></span>
+                        </div>
+                        <button class="page-btn" title="Next page">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

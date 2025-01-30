@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Analytics - HOD Dashboard</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logo.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="hod.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/logo.png" alt="Logo" class="dashboard-logo">
+                <span class="dashboard-title">Academic Record Management System</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="hod-dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="hod-lecturers.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Lecturers</span>
+                </a>
+                <a href="hod-students.html" class="nav-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>Students</span>
+                </a>
+                <a href="hod-courses.html" class="nav-item">
+                    <i class="fas fa-book"></i>
+                    <span>Courses</span>
+                </a>
+                <a href="hod-performance.html" class="nav-item active">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Performance</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="theme-toggle" title="Toggle dark/light theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="dashboard-main hod-performance">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="header-title">
+                        <h1>Performance Analytics</h1>
+                        <p>Monitor and analyze department performance metrics</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="generate-report-btn" onclick="generatePerformanceReport()">
+                        <i class="fas fa-file-export"></i> Generate Report
+                    </button>
+                </div>
+            </header>
+
+            <div class="hod-performance-content">
+                <!-- Performance Overview -->
+                <div class="performance-overview">
+                    <div class="overview-header">
+                        <h3>Department Overview</h3>
+                        <select class="period-select">
+                            <option value="semester">Current Semester</option>
+                            <option value="year">Academic Year</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                    </div>
+                    <div class="hod-grid stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Overall Pass Rate</h3>
+                                <p class="stat-value">78%</p>
+                                <span class="stat-change positive">+5% from last semester</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Student Performance</h3>
+                                <p class="stat-value">82%</p>
+                                <span class="stat-change positive">+3% improvement</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Lecturer Effectiveness</h3>
+                                <p class="stat-value">85%</p>
+                                <span class="stat-change positive">+2% increase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Performance -->
+                <div class="performance-section">
+                    <div class="section-header">
+                        <h3>Course Performance Analysis</h3>
+                        <div class="section-filters">
+                            <select class="filter-select">
+                                <option value="all">All Courses</option>
+                                <option value="core">Core Courses</option>
+                                <option value="elective">Electives</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="courses-grid">
+                        <div class="course-performance-card">
+                            <div class="course-info">
+                                <h4>Advanced Programming</h4>
+                                <span class="course-code">CS301</span>
+                            </div>
+                            <div class="performance-metrics">
+                                <div class="metric">
+                                    <span class="label">Pass Rate</span>
+                                    <span class="value">85%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="label">Average Grade</span>
+                                    <span class="value">76%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="label">Attendance</span>
+                                    <span class="value">92%</span>
+                                </div>
+                            </div>
+                            <div class="performance-chart">
+                                <!-- Chart will be rendered here -->
+                            </div>
+                            <button class="view-details-btn" onclick="viewCourseDetails(1)">
+                                View Detailed Analysis
+                            </button>
+                        </div>
+                        <!-- Add more course performance cards -->
+                    </div>
+                </div>
+
+                <!-- Student Performance Tracking -->
+                <div class="performance-section">
+                    <div class="section-header">
+                        <h3>Student Performance Tracking</h3>
+                        <div class="section-filters">
+                            <select class="filter-select">
+                                <option value="all">All Years</option>
+                                <option value="1">Year 1</option>
+                                <option value="2">Year 2</option>
+                                <option value="3">Year 3</option>
+                                <option value="4">Year 4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="performance-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Year</th>
+                                    <th>GPA</th>
+                                    <th>Attendance</th>
+                                    <th>Performance Trend</th>
+                                    <th>Risk Level</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="student-info">
+                                            <span class="student-name">John Smith</span>
+                                            <span class="student-id">CS2023001</span>
+                                        </div>
+                                    </td>
+                                    <td>Year 2</td>
+                                    <td>3.8</td>
+                                    <td>95%</td>
+                                    <td>
+                                        <span class="trend-indicator positive">
+                                            <i class="fas fa-arrow-up"></i> Improving
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="risk-badge low">Low Risk</span>
+                                    </td>
+                                    <td>
+                                        <button class="view-btn" onclick="viewStudentPerformance(1)">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Add more student rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

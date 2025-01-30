@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claims History - Student Dashboard</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logo.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="student.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Same sidebar as other student pages -->
+            <div class="sidebar-header">
+                <img src="../assets/logo.png" alt="Logo" class="dashboard-logo">
+                <span class="dashboard-title">Academic Record Management System</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="student-dashboard.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="student-courses.html" class="nav-item">
+                    <i class="fas fa-book"></i>
+                    <span>My Courses</span>
+                </a>
+                <a href="student-academic-progress.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Academic Progress</span>
+                </a>
+                <a href="student-claims-history.html" class="nav-item active">
+                    <i class="fas fa-history"></i>
+                    <span>Claims History</span>
+                </a>
+                <a href="student-settings.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="theme-toggle" title="Toggle dark/light theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="dashboard-main student-claims">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="header-title">
+                        <h1>Claims History</h1>
+                        <p>Track and manage your academic claims</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="new-claim-btn" onclick="openNewClaimModal()">
+                        <i class="fas fa-plus"></i>
+                        New Claim
+                    </button>
+                </div>
+            </header>
+
+            <div class="student-claims-content">
+                <!-- Claims Overview -->
+                <div class="claims-overview">
+                    <div class="overview-cards">
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Pending Claims</h3>
+                                <p class="value">2</p>
+                            </div>
+                        </div>
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Approved Claims</h3>
+                                <p class="value">5</p>
+                            </div>
+                        </div>
+                        <div class="overview-card">
+                            <div class="card-icon">
+                                <i class="fas fa-times-circle"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Rejected Claims</h3>
+                                <p class="value">1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Claims List -->
+                <div class="claims-section">
+                    <div class="section-header">
+                        <h2>Recent Claims</h2>
+                        <div class="filter-group">
+                            <select class="status-select">
+                                <option value="all">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                            <select class="type-select">
+                                <option value="all">All Types</option>
+                                <option value="grade">Grade Correction</option>
+                                <option value="attendance">Attendance</option>
+                                <option value="fee">Fee Related</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="claims-list">
+                        <div class="claim-card">
+                            <div class="claim-header">
+                                <div class="claim-type">
+                                    <i class="fas fa-edit"></i>
+                                    Grade Correction
+                                </div>
+                                <span class="claim-status pending">Pending</span>
+                            </div>
+                            <div class="claim-details">
+                                <h3>Advanced Programming - Mid-term Grade</h3>
+                                <p>Request for review of mid-term examination grade due to possible marking error.</p>
+                                <div class="claim-meta">
+                                    <span><i class="fas fa-calendar"></i> Submitted: Mar 15, 2024</span>
+                                    <span><i class="fas fa-clock"></i> Last Updated: Mar 16, 2024</span>
+                                </div>
+                            </div>
+                            <div class="claim-actions">
+                                <button class="view-btn" onclick="viewClaimDetails(1)">
+                                    <i class="fas fa-eye"></i> View Details
+                                </button>
+                                <button class="edit-btn" onclick="editClaim(1)">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- More claim cards with different statuses -->
+                        <div class="claim-card">
+                            <div class="claim-header">
+                                <div class="claim-type">
+                                    <i class="fas fa-user-clock"></i>
+                                    Attendance Dispute
+                                </div>
+                                <span class="claim-status approved">Approved</span>
+                            </div>
+                            <div class="claim-details">
+                                <h3>Database Systems - Attendance Record</h3>
+                                <p>System error in attendance recording for March 10th lecture.</p>
+                                <div class="claim-meta">
+                                    <span><i class="fas fa-calendar"></i> Submitted: Mar 11, 2024</span>
+                                    <span><i class="fas fa-check-circle"></i> Resolved: Mar 12, 2024</span>
+                                </div>
+                                <div class="admin-feedback">
+                                    <p><i class="fas fa-comment"></i> Attendance record has been updated. Thank you for bringing this to our attention.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="claims-pagination">
+                        <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                        <span>Page 1 of 3</span>
+                        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- New Claim Modal -->
+    <div id="newClaimModal" class="modal">
+        <!-- Modal content here -->
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
