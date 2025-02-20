@@ -700,3 +700,127 @@ function calculateStatistics() {
 if (document.querySelector('.report-preview')) {
     calculateStatistics();
 } 
+
+
+// Update the modal functions
+function openStudentsModal(courseCode) {
+    const modal = document.getElementById('studentsModal');
+    const courseRow = document.querySelector(`tr[data-course-code="${courseCode}"]`);
+    const courseName = courseRow.querySelector('td:nth-child(2)').textContent;
+    
+    const modalTitle = document.getElementById('modalCourseTitle');
+    modalTitle.textContent = `${courseName} (${courseCode})`;
+
+    // Sample student data
+    const studentData = [
+        {
+            regNumber: '2023001',
+            name: 'John Doe',
+            department: 'Computer Science',
+            assignment: 25,
+            midTerm: 18,
+            final: 45,
+            total: 88,
+            status: 'Complete'
+        },
+        {
+            regNumber: '2023002',
+            name: 'Jane Smith',
+            department: 'Computer Science',
+            assignment: null,
+            midTerm: null,
+            final: null,
+            total: null,
+            status: 'Pending'
+        }
+    ];
+
+    const tbody = document.getElementById('studentsList');
+    tbody.innerHTML = studentData.map(student => `
+        <tr class="student-row" onclick="openMarksUploadModal('${student.regNumber}', '${student.name}')">
+            <td>${student.regNumber}</td>
+            <td>${student.name}</td>
+            <td>${student.department}</td>
+            <td>${student.assignment || '-'}</td>
+            <td>${student.midTerm || '-'}</td>
+            <td>${student.final || '-'}</td>
+            <td>${student.total || '-'}</td>
+            <td><span class="status-badge ${student.status.toLowerCase()}">${student.status}</span></td>
+        </tr>
+    `).join('');
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeStudentsModal() {
+    const modal = document.getElementById('studentsModal');
+    modal.classList.remove('active');
+}
+
+function openMarksUploadModal(studentId, studentName) {
+    const modal = document.getElementById('marksUploadModal');
+    modal.classList.add('active');
+}
+
+function closeMarksUploadModal() {
+    const modal = document.getElementById('marksUploadModal');
+    modal.classList.remove('active');
+}
+
+function downloadTemplate() {
+    // Here you would typically trigger the template download
+    console.log('Downloading marks template...');
+}
+
+function triggerFileUpload() {
+    document.getElementById('marksFile').click();
+}
+
+function handleFileSelect(event) {
+    const file = event.target.files[0];
+    if (file) {
+        document.getElementById('uploadBtn').disabled = false;
+        // Add file validation if needed
+    }
+}
+
+function uploadMarks() {
+    const fileInput = document.getElementById('marksFile');
+    const file = fileInput.files[0];
+    
+    if (file) {
+        // Here you would typically handle the file upload
+        console.log('Uploading marks file:', file);
+        
+        // Show success message and close modals
+        closeMarksUploadModal();
+        closeStudentsModal();
+        // You might want to add a success notification here
+    }
+}
+
+// Close modals when clicking outside
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        if (event.target.id === 'studentsModal') {
+            closeStudentsModal();
+        } else if (event.target.id === 'marksUploadModal') {
+            closeMarksUploadModal();
+        }
+    }
+};
+
+// Close modals with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const activeModal = document.querySelector('.modal.active');
+        if (activeModal) {
+            if (activeModal.id === 'studentsModal') {
+                closeStudentsModal();
+            } else if (activeModal.id === 'marksUploadModal') {
+                closeMarksUploadModal();
+            }
+        }
+    }
+});
